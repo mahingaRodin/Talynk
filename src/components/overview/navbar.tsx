@@ -1,36 +1,37 @@
 import { IoNotificationsOutline } from "react-icons/io5";
 import CustomButton from './customButton';
-import logo from '../../assets/tLogo.png'
+import logo from '../../assets/tLogo.png';
 import Navigation from './navigation';
 
 const Navbar = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white ">
-      <nav className="w-full  py-3 pl-14 max-w-[1440px]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+      <nav className="w-full py-3 px-4 lg:px-8">
         <div className="flex items-center justify-between">
-        
+          {/* Logo and Navigation */}
           <div className="flex items-center gap-8">
+            {/* Logo and Title */}
             <div className="flex items-center gap-4">
               <img src={logo} alt="Talynk Logo" className="h-8 w-auto" />
-              <h1 className="text-2xl whitespace-nowrap">
+              <h1 className="text-2xl whitespace-nowrap font-bold">
                 Tal<span className="text-blue italic">ynk</span>
               </h1>
             </div>
-            
-         
+
+            {/* Navigation Links */}
             <div className="hidden md:block">
               <Navigation />
             </div>
           </div>
 
-    
+          {/* Notification and Buttons */}
           <div className="flex items-center gap-6">
-         
+            {/* Notification Icon */}
             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#E4F4FF] border-2 border-blue">
               <IoNotificationsOutline color="#1782CF" />
             </div>
 
-            {/* Buttons - Responsive Layout */}
+            {/* Buttons - Desktop */}
             <div className="hidden sm:flex items-center gap-8">
               <CustomButton
                 text="Register Approver"
@@ -48,16 +49,27 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Mobile Menu Button - Show only on mobile */}
+            {/* Mobile Menu Button */}
             <button className="sm:hidden p-2 rounded-md hover:bg-gray-100">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Menu - Hidden by default */}
+        {/* Mobile Navigation Menu */}
         <div className="md:hidden">
           <div className="hidden pt-4 pb-3 space-y-1">
             <Navigation />

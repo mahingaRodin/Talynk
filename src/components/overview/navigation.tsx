@@ -7,19 +7,19 @@ const Navigation = () => {
     'Overview',
     'User Management',
     'Video Management',
-    'Approvers'
+    'Approvers',
   ];
 
   return (
-    <nav className="bg-gray-100 p-2 rounded-full max-w-fit">
-      <div className="flex items-center">
+    <nav className="bg-gray-100 p-2 rounded-full w-full max-w-3xl mx-auto">
+      <div className="flex items-center justify-between">
         {navItems.map((item, index) => (
           <React.Fragment key={item}>
             <button
               onClick={() => setActiveTab(item)}
               className={`px-6 py-2 rounded-full transition-all duration-200 text-sm ${
                 activeTab === item
-                  ? 'bg-white text-black  shadow-sm'
+                  ? 'bg-white text-black shadow-sm'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
             >
