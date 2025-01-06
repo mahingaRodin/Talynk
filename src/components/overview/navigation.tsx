@@ -11,7 +11,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-gray-100 p-2 rounded-full max-w-fit mx-auto">
+    <nav className="bg-gray-100 p-2 rounded-full max-w-fit">
       <div className="flex items-center">
         {navItems.map((item, index) => (
           <React.Fragment key={item}>
@@ -19,7 +19,7 @@ const Navigation = () => {
               onClick={() => setActiveTab(item)}
               className={`px-6 py-2 rounded-full transition-all duration-200 text-sm ${
                 activeTab === item
-                  ? 'bg-white text-gray-800 shadow-sm'
+                  ? 'bg-white text-black  shadow-sm'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
             >
