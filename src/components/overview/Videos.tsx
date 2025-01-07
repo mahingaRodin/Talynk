@@ -22,7 +22,7 @@ const postsData = [
   {
     id: 2,
     author: {
-      name: "Sarah Johnson",
+      name: "Sarah John",
       avatar: pic
     },
     timeAgo: "1 day ago",
@@ -74,15 +74,18 @@ const SocialPost = ({ post }) => {
           
           {/* Header content */}
           <div className="absolute top-0 left-0 right-0 px-4 py-2 flex justify-between items-center z-20">
-            <div className="flex items-center space-x-2">
-              <img 
-                src={post.author.avatar} 
-                alt="" 
-                className="w-8 h-8 rounded-full border border-white/30"
-              />
-              <span className="text-white font-medium">{post.author.name}</span>
-            </div>
-            <span className="text-white/80 text-sm">{post.timeAgo}</span>
+          <div className="flex items-center justify-center bg-black1 text-white rounded-full px-4 py-2 space-x-2">
+  <img 
+    src={post.author.avatar} 
+    alt="" 
+    className="w-8 h-8 rounded-full border border-white/30"
+  />
+  <span className="font-medium">{post.author.name}</span>
+</div>
+<div className="flex items-center justify-center bg-white/20 backdrop-blur-sm text-white/80 text-sm rounded-full px-4 py-2">
+  <span>{post.timeAgo}</span>
+</div>
+
           </div>
 
           {/* Video Container */}
