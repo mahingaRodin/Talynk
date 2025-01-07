@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Videos from '../overview/Videos'
+import Trending from './Trending';
 import { data } from '../../data';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; 
 
@@ -74,6 +75,9 @@ const Graph = () => {
 
         <div className="relative z-0"> {/* Added lower z-index for Videos component */}
           <Videos />
+        </div>
+        <div>
+          <Trending></Trending>
         </div>
       </div>
     </div>
