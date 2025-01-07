@@ -1,6 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import video from '../../assets/video.mp4';
 import pic from '../../assets/lanez.jpg';
+import thumb1 from '../../assets/thumb1.jpg'
+import thumb2 from '../../assets/thumb2.jpg'
+import thumb3 from '../../assets/thumb3.jpg'
+import thumb4 from '../../assets/thumb4.jpg'
 import CustomButton from './customButton';
 import { Play } from 'lucide-react';
 
@@ -13,7 +17,7 @@ const postsData = [
     },
     timeAgo: "2 days ago",
     videoSrc: video,
-    thumbnail: pic
+    thumbnail: thumb1
   },
   {
     id: 2,
@@ -23,7 +27,7 @@ const postsData = [
     },
     timeAgo: "1 day ago",
     videoSrc: video,
-    thumbnail: pic
+    thumbnail: thumb2
   },
   {
     id: 3,
@@ -33,7 +37,7 @@ const postsData = [
     },
     timeAgo: "5 hours ago",
     videoSrc: video,
-    thumbnail: pic
+    thumbnail: thumb3
   }
 ];
 
