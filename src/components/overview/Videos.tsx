@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import video from '../../assets/video.mp4';
 import pic from '../../assets/lanez.jpg';
-import thumb1 from '../../assets/thumb1.jpg'
-import thumb2 from '../../assets/thumb2.jpg'
-import thumb3 from '../../assets/thumb3.jpg'
-import thumb4 from '../../assets/thumb4.jpg'
+import thumb1 from '../../assets/thumb1.jpg';
+import thumb2 from '../../assets/thumb2.jpg';
+import thumb3 from '../../assets/thumb3.jpg';
+import thumb4 from '../../assets/thumb4.jpg';
 import CustomButton from './customButton';
 import { Play } from 'lucide-react';
 
@@ -38,20 +38,21 @@ const postsData = [
     timeAgo: "5 hours ago",
     videoSrc: video,
     thumbnail: thumb3
-  }
+  },
+  
 ];
 
 const SocialPost = ({ post }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const PREVIEW_DURATION = 300; // 5 minutes in seconds
+  const PREVIEW_DURATION = 300;
 
   useEffect(() => {
     const video = videoRef.current;
     
     const handleTimeUpdate = () => {
       if (video.currentTime >= PREVIEW_DURATION) {
-        video.currentTime = 0; // Reset to start when preview duration is reached
+        video.currentTime = 0;
       }
     };
 
@@ -65,9 +66,9 @@ const SocialPost = ({ post }) => {
   };
 
   return (
-    <div className="w-80 min-w-80 mx-4 first:ml-0 last:mr-0">
-      <div className="bg-white rounded-lg overflow-hidden">
-        <div className="relative">
+    <div className="w-[340px] min-w-[340px] mx-2 first:ml-0 last:mr-0">
+      <div className="bg-white  rounded-xl overflow-hidden">
+        <div className="relative w-[340px] h-[340px]"> {/* Made container square */}
           {/* Dark gradient overlay for header */}
           <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/70 to-transparent z-10" />
           
@@ -85,11 +86,11 @@ const SocialPost = ({ post }) => {
           </div>
 
           {/* Video Container */}
-          <div className="relative">
+          <div className="relative h-full">
             <video 
               ref={videoRef}
               src={post.videoSrc}
-              className="w-full h-48 object-cover"
+              className="w-full h-full object-cover rounded-xl"
               poster={post.thumbnail}
               controls={isPlaying}
               preload="metadata"
@@ -97,11 +98,11 @@ const SocialPost = ({ post }) => {
             
             {!isPlaying && (
               <div 
-                className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors cursor-pointer rounded-xl"
                 onClick={handlePlayClick}
               >
-                <div className="w-12 h-12 rounded-full bg-white/30 flex items-center justify-center">
-                  <Play className="w-6 h-6 text-white fill-current" />
+                <div className="w-16 h-16 rounded-full bg-white/30 flex items-center justify-center">
+                  <Play className="w-8 h-8 text-white fill-current" />
                 </div>
               </div>
             )}
@@ -109,18 +110,20 @@ const SocialPost = ({ post }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex pt-2 gap-9">
+        <div className="flex px-1 py-3 gap-4"> {/* Adjusted padding and gap */}
           <CustomButton
             text="Discard"
             bgColor="#44454A"
             textColor="white"
             border="none"
+            extraStyles={{ flex: 1, borderRadius: '0.75rem', padding: '0.75rem' }}
           />
           <CustomButton
             text="Approve"
             bgColor="#006FFD"
             textColor="white"
             border="none"
+            extraStyles={{ flex: 1, borderRadius: '0.75rem', padding: '0.75rem' }}
           />
         </div>
       </div>

@@ -1,28 +1,45 @@
-import React from 'react'
+import React from 'react';
 
 interface CustomButtonProps {
   text: string;
   bgColor: string;
   textColor: string;
-  border?: string; // Optional border prop
-  extraStyles?: React.CSSProperties; // Optional extra styles prop
+  border?: string;
+  extraStyles?: React.CSSProperties;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ text, bgColor, textColor, border, extraStyles }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ 
+  text, 
+  bgColor, 
+  textColor, 
+  border = {
+    width: '0px',
+    style: 'solid',
+    color: 'transparent'
+  },
+  extraStyles = {}
+}) => {
+  // Construct border string from border object
+ 
+
   return (
-    <div style={{
-      backgroundColor: bgColor,
-      color: textColor,
-      border: border ? `1px solid ${border}` : 'none', // Apply border if provided
-      padding: '10px 20px',
-      borderRadius: '5px',
-      display: 'inline-block',
-      cursor: 'pointer',
-      ...extraStyles // Apply extra styles if provided
-    }}>
+    <button
+      className="flex items-center justify-center"
+      style={{
+        backgroundColor: bgColor,
+        color: textColor,
+        border: border ? `1px solid ${border}` : 'none',
+        padding: '0.5rem 1rem',
+        borderRadius: '0.25rem',
+        cursor: 'pointer',
+        textAlign: 'center',
+        width: 'fit-content',
+        ...extraStyles
+      }}
+    >
       {text}
-    </div>
-  )
-}
+    </button>
+  );
+};
 
-export default CustomButton
+export default CustomButton;
