@@ -12,7 +12,8 @@ export default {
         darkGrey:'#44454A',
         red:'#FF3B30',
         black1:'#2F3037',
-        kyan:'#D4E8F6'
+        kyan:'#D4E8F6',
+        lightGrey:'#F8F9FE'
       },
     },
   },
