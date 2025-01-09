@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
 import lanez from '../../assets/lanez.jpg'
 import userData from '../../userData'
+import CustomButton from "./customButton";
 
 const DropdownFilter = () => {
   const [selectedOption, setSelectedOption] = useState(""); // To track selected option
@@ -104,6 +105,29 @@ const DropdownFilter = () => {
         ))}
       </div>
     </div>
+
+    <div className="flex flex-row gap-4 mt-5 w-full max-w-lg">
+  {/* Button 1 */}
+  <CustomButton
+    text="View Account"
+    bgColor="#006FFD"
+    textColor="#fff"
+    border=""
+    extraStyles={{ width: "100%",height:'48px', fontWeight: 200, borderRadius:10}}
+  />
+
+  {/* Button 2 */}
+  <CustomButton
+    text="Freeze"
+    bgColor="#FF3B30"
+    textColor="#fff"
+    border=""
+    extraStyles={{ width: "100%", fontWeight: 200, borderRadius:10 }}
+  />
+</div>
+
+
+
 
     </div>
   );
