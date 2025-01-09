@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
 import lanez from '../../assets/lanez.jpg'
+import userData from '../../userData'
 
 const DropdownFilter = () => {
   const [selectedOption, setSelectedOption] = useState(""); // To track selected option
@@ -68,43 +69,42 @@ const DropdownFilter = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between w-full max-w-lg p-4 border border-blue-200 rounded-lg bg-white shadow-sm">
+      <div className="flex mt-5 items-center justify-between w-full max-w-lg p-4 border border-kyan rounded-xl bg-lightGrey">
       {/* Left Section */}
       <div className="flex flex-col">
-        <div className="flex items-center space-x-2 w-[200px] bg-black1 text-white rounded-[30px] px-4 py-1">
-          <img
-            src={lanez}
-            alt="Profile"
-            className="w-8 h-8 rounded-full"
-          />
-          <span className="text-md font-semibold">John Smith</span>
+        <div className="flex items-center space-x-2 w-[180px] bg-black1 text-white rounded-[30px] px-2 py-1">
+          <img src={lanez} alt="Profile" className="w-8 h-8 rounded-full" />
+          <span className="text-sm font-semibold">{userData.name}</span>
         </div>
         <div className="mt-4 space-y-2">
-  {/* Phone Number Section */}
-  <div className="flex items-center w-[140px] justify-center border-2 border-kyan bg-lightGrey bg-blue-100 text-blue-500 font-medium rounded-full  py-1">
-    <p className="text-blue text-[13px]">+250 786 564 924</p>
-  </div>
+          {/* Phone Number Section */}
+          <div className="flex items-center w-[140px] justify-center border-2 border-kyan bg-lightGrey bg-blue-100 text-blue-500 font-medium rounded-full py-1">
+            <p className="text-blue text-[13px]">{userData.phone}</p>
+          </div>
 
-  {/* Email Section */}
-  <div className="flex items-center w-[220px] justify-center border-2 border-kyan bg-lightGrey bg-blue-100 text-blue-500 font-medium rounded-full px-6 py-1">
-    <p className="text-blue text-[13px]">laulanyumbayire@gmail.com</p>
-  </div>
-</div>
-
+          {/* Email Section */}
+          <div className="flex items-center w-[220px] justify-center border-2 border-kyan bg-lightGrey bg-blue-100 text-blue-500 font-medium rounded-full px-6 py-1">
+            <p className="text-blue text-[13px]">{userData.email}</p>
+          </div>
+        </div>
       </div>
+
+      {/* Divider */}
+      <div className="h-32 w-[1px] bg-kyan mx-2"></div>
 
       {/* Right Section */}
       <div className="grid grid-cols-1 gap-4 text-center">
-        <div className="space-y-1">
-          <p className="text-xl font-bold">39</p>
-          <p className="text-gray-600">Posts</p>
-        </div>
-        <div className="space-y-1">
-          <p className="text-xl font-bold">39</p>
-          <p className="text-gray-600">Subscribers</p>
-        </div>
+        {userData.stats.map((stat, index) => (
+          <div key={index} className="gap-2 flex">
+            <div className="flex items-center justify-center w-8 border-2 border-kyan bg-lightGrey h-8 bg-blue-100 text-blue-500 font-bold rounded-lg">
+              <p className="text-lg">{stat.count}</p>
+            </div>
+            <p className="text-gray-600 text-sm relative top-2">{stat.label}</p>
+          </div>
+        ))}
       </div>
     </div>
+
     </div>
   );
 };
