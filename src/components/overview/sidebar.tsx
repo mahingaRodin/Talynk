@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoChevronDown, IoChevronForward, IoSearch } from "react-icons/io5";
+import { IoChevronDown, IoChevronForward, IoExitOutline, IoPerson, IoSearch } from "react-icons/io5";
 import lanez from '../../assets/lanez.jpg'
 import userData from '../../userData'
 import CustomButton from "./customButton";
@@ -136,29 +136,26 @@ const DropdownFilter = () => {
 
   {/* Notification Items */}
   <div className="space-y-4">
-    {Array(4)
-      .fill(0)
-      .map((_, index) => (
-        <div
-          key={index}
-          className="flex items-center justify-between p-3 bg-white  rounded-md "
-        >
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-              <img
-                src="https://via.placeholder.com/40"
-                alt="User Avatar"
-                className="w-8 h-8 rounded-full"
-              />
-            </div>
-            <span className="text-sm font-medium text-gray-800">Page Title</span>
+  {Array(4)
+    .fill(0)
+    .map((_, index) => (
+      <div
+        key={index}
+        className="flex items-center justify-between p-3 bg-white rounded-md"
+      >
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 bg-kyan rounded-full flex items-center justify-center">
+            {/* Replaced img with IoPerson icon and styled it to be blue */}
+            <IoPerson className="w-6 h-6 text-blue" />
           </div>
-          <div>
-            <IoChevronForward size={20} className="text-blue" />
-          </div>
+          <span className="text-sm font-medium text-gray-800">Page Title</span>
         </div>
-      ))}
-  </div>
+        <div>
+          <IoChevronForward size={20} className="text-blue" />
+        </div>
+      </div>
+    ))}
+</div>
 </div>
 
 <div className="mt-8 w-full max-w-md mx-auto">
@@ -183,6 +180,11 @@ const DropdownFilter = () => {
     }}
   />
 </div>
+<div className="flex justify-center mt-6">
+    <button className="w-14 h-14 bg-blue rounded-full flex items-center justify-center">
+      <IoExitOutline className="w-6 h-6 text-white" />
+    </button>
+  </div>
 
 
 
