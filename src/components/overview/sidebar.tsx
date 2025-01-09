@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoChevronDown, IoSearch } from "react-icons/io5";
+import { IoChevronDown, IoChevronForward, IoSearch } from "react-icons/io5";
 import lanez from '../../assets/lanez.jpg'
 import userData from '../../userData'
 import CustomButton from "./customButton";
@@ -106,7 +106,7 @@ const DropdownFilter = () => {
       </div>
     </div>
 
-    <div className="flex flex-row gap-4 mt-5 w-full max-w-lg">
+    <div className="flex flex-row gap-4 mt-4 w-full max-w-lg">
   {/* Button 1 */}
   <CustomButton
     text="View Account"
@@ -125,6 +125,65 @@ const DropdownFilter = () => {
     extraStyles={{ width: "100%", fontWeight: 200, borderRadius:10 }}
   />
 </div>
+<div className="mt-8 w-full max-w-lg">
+  {/* Notifications Header */}
+  <div className="flex items-center justify-between mb-4">
+    <h2 className="text-lg font-semibold">Notifications</h2>
+    <a href="#" className="text-blue text-sm font-medium hover:font-bold">
+      View All
+    </a>
+  </div>
+
+  {/* Notification Items */}
+  <div className="space-y-4">
+    {Array(4)
+      .fill(0)
+      .map((_, index) => (
+        <div
+          key={index}
+          className="flex items-center justify-between p-3 bg-white  rounded-md "
+        >
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+              <img
+                src="https://via.placeholder.com/40"
+                alt="User Avatar"
+                className="w-8 h-8 rounded-full"
+              />
+            </div>
+            <span className="text-sm font-medium text-gray-800">Page Title</span>
+          </div>
+          <div>
+            <IoChevronForward size={20} className="text-blue" />
+          </div>
+        </div>
+      ))}
+  </div>
+</div>
+
+<div className="mt-8 w-full max-w-md mx-auto">
+  {/* Input Field */}
+  <input
+    type="text"
+    placeholder="Enter message to send"
+    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none  mb-4"
+  />
+
+  {/* Broadcast Button */}
+  <CustomButton
+    text="Broadcast a message"
+    bgColor="#006FFD"
+    textColor="white"
+    extraStyles={{
+      width: "100%",
+      padding: "12px",
+      borderRadius: "8px",
+     
+      textAlign: "center",
+    }}
+  />
+</div>
+
 
 
 
