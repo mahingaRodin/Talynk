@@ -4,7 +4,7 @@ import pic from '../../assets/lanez.jpg';
 import thumb1 from '../../assets/thumb1.jpg';
 import thumb2 from '../../assets/thumb2.jpg';
 import thumb3 from '../../assets/thumb3.jpg';
-import thumb4 from '../../assets/thumb4.jpg';
+
 import CustomButton from './customButton';
 import { Play } from 'lucide-react';
 
@@ -41,28 +41,42 @@ const postsData = [
   },
   
 ];
+type Post = {
+  id: number;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  timeAgo: string;
+  videoSrc: string;
+  thumbnail: string;
+};
 
-const SocialPost = ({ post }) => {
-  const videoRef = useRef(null);
+const SocialPost: React.FC<{ post: Post }> = ({ post }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const PREVIEW_DURATION = 300;
 
   useEffect(() => {
     const video = videoRef.current;
-    
+    if (!video) return;
+  
     const handleTimeUpdate = () => {
       if (video.currentTime >= PREVIEW_DURATION) {
         video.currentTime = 0;
       }
     };
-
-    video.addEventListener('timeupdate', handleTimeUpdate);
-    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+  
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
   }, []);
 
   const handlePlayClick = () => {
-    setIsPlaying(true);
-    videoRef.current.play();
+    if (videoRef.current) {
+      setIsPlaying(true);
+      videoRef.current.play();
+    }
   };
 
   return (

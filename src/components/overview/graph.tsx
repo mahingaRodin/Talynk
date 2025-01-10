@@ -13,7 +13,7 @@ const Graph = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const handleFilterChange = (option) => {
+  const handleFilterChange = (option:string) => {
     setFilter(option);
     setIsDropdownOpen(false);
   };

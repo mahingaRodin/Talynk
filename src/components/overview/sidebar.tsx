@@ -18,7 +18,7 @@ const DropdownFilter = () => {
   ];
 
   // Handle option selection
-  const handleSelect = (option) => {
+  const handleSelect = (option:string) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -107,7 +107,7 @@ const DropdownFilter = () => {
     </div>
 
     <div className="flex flex-row gap-4 mt-4 w-full max-w-lg">
-  {/* Button 1 */}
+  
   <CustomButton
     text="View Account"
     bgColor="#006FFD"
@@ -116,7 +116,7 @@ const DropdownFilter = () => {
     extraStyles={{ width: "100%",height:'48px', fontWeight: 200, borderRadius:10}}
   />
 
-  {/* Button 2 */}
+  
   <CustomButton
     text="Freeze"
     bgColor="#FF3B30"
@@ -126,7 +126,7 @@ const DropdownFilter = () => {
   />
 </div>
 <div className="mt-8 w-full max-w-lg">
-  {/* Notifications Header */}
+ 
   <div className="flex items-center justify-between mb-4">
     <h2 className="text-lg font-semibold">Notifications</h2>
     <a href="#" className="text-blue text-sm font-medium hover:font-bold">
