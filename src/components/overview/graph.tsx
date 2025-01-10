@@ -42,8 +42,8 @@ const Graph = () => {
         <div className="flex items-center justify-between pr-16 pl-1 mt-4 relative">
           <h1 className="text-grey font-bold text-xl">Pending Videos</h1>
 
-          {/* Filter Bar with increased z-index */}
-          <div className="relative z-50"> {/* Added high z-index here */}
+          
+          <div className="relative z-20"> 
             <div
               className="flex items-center gap-2 p-2 rounded-xl border-2 border-grey cursor-pointer bg-white"
               onClick={toggleDropdown}
@@ -58,7 +58,7 @@ const Graph = () => {
 
             {/* Dropdown Menu with increased z-index */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-[150px] bg-white border rounded-md shadow-lg z-[9999]">
+              <div className="absolute right-0 mt-2 w-[150px] bg-white border rounded-md shadow-lg ">
                 {['Newest', 'Oldest', 'Current'].map((option) => (
                   <div
                     key={option}
