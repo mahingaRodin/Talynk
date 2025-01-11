@@ -80,9 +80,9 @@ const SocialPost: React.FC<{ post: Post }> = ({ post }) => {
   };
 
   return (
-    <div className="w-[340px] min-w-[340px] mx-2 first:ml-0 last:mr-0">
+    <div className="w-[372px] min-w-[372px] mx-2 first:ml-0 last:mr-0">
       <div className="bg-white  rounded-xl overflow-hidden">
-        <div className="relative w-[340px] h-[340px]"> {/* Made container square */}
+        <div className="relative w-[372px] h-[372px]"> {/* Made container square */}
           {/* Dark gradient overlay for header */}
           <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/70 to-transparent z-10" />
           

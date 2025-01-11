@@ -21,13 +21,13 @@ const Graph = () => {
   return (
     <div className="flex w-full px-4">
       
-      <div className="w-[70%] p-4">
+      <div className="w-[75%] p-6">
         {/* Wrapper for the data items */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-7">
           {data.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col items-center rounded-2xl border border-blue p-4 bg-white w-[200px]"
+              className="flex flex-col items-center rounded-2xl border border-blue p-4 bg-white w-[210px]"
             >
               <div className="flex flex-row gap-5">
                 <div className="text-4xl font-bold text-red mb-2">{item.count}</div>
@@ -39,7 +39,7 @@ const Graph = () => {
         </div>
 
         {/* Title and Filter Bar */}
-        <div className="flex items-center justify-between pr-16 pl-1 mt-4 relative">
+        <div className="flex items-center justify-between pr-10 pl-3 mt-4 relative">
           <h1 className="text-grey font-bold text-xl">Pending Videos</h1>
 
           
@@ -83,7 +83,7 @@ const Graph = () => {
         </div>
       </div>
 
-      <div className='w-[30%] p-4'>
+      <div className='w-[25%] '>
         <Sidebar></Sidebar>
 
       </div>

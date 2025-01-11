@@ -19,7 +19,7 @@ const Trending = () => {
   return (
     <div>
 
-<div className="flex items-center justify-between pr-16 pl-1  relative">
+<div className="flex items-center justify-between pr-16 pl-4  relative">
           <h1 className="text-grey font-bold text-xl">Trending Videos</h1>
 
           {/* Filter Bar with increased z-index */}
