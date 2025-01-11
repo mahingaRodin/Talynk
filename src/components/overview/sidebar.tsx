@@ -24,7 +24,7 @@ const DropdownFilter = () => {
   };
 
   return (
-    <div className="fixed top-0 bottom-0 h-screen w-[30%] max-w-sm overflow-y-auto scrollbar-none pt-9 pb-4">
+    <div className="fixed top-0 bottom-0 h-screen w-[30%] max-w-sm overflow-y-auto scrollbar-none pt-[110px] pb-4">
       {/* Dropdown Button */}
       <div
         onClick={() => setIsOpen((prev) => !prev)}
