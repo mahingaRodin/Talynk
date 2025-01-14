@@ -26,7 +26,7 @@ const Navigation = () => {
               {item}
             </button>
             {index < navItems.length - 1 && (
-              <div className="h-6 w-px bg-gray-300 mx-3" />
+              <div className="h-6 w-px bg-gray-300 mx-2" />
             )}
           </React.Fragment>
         ))}
