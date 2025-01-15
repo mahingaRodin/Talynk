@@ -4,7 +4,7 @@ import { IoNotificationsOutline } from "react-icons/io5"
 import CustomButton from "./customButton"
 const navbar = () => {
   return (
-    <div>
+    
        <header className="sticky top-0 left-0 right-0 z-50  bg-white">
   <nav className="w-full py-3 px-4 lg:px-8 pb-4">
     <div className="flex items-center justify-between">
@@ -95,7 +95,7 @@ const navbar = () => {
  
 </header>
       
-    </div>
+   
   )
 }
 

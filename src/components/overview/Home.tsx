@@ -7,14 +7,10 @@ import Navbar from "./navbar";
 const Home=()=>{
   return(
     <div>
-    <div>
+   
        <Navbar></Navbar>
-    </div>
-
-
-    <div>
-    <Graph></Graph>
-  </div>
+       <Graph></Graph>
+ 
     </div>
     
 
