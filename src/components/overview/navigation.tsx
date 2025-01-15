@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
-  const [activeTab, setActiveTab] = useState('Overview');
+  const location = useLocation(); // Get current path to highlight the active tab
 
   const navItems = [
-    'Overview',
-    'User Management',
-    'Video Management',
-    'Approvers',
+    { name: 'Overview', path: '/' },
+    { name: 'User Management', path: '/user-management' },
+    { name: 'Video Management', path: '/video-management' },
+    { name: 'Approvers', path: '/approvers' },
   ];
 
   return (
     <nav className="bg-gray-100 p-2 rounded-full w-full max-w-3xl mx-auto">
       <div className="flex items-center justify-between">
         {navItems.map((item, index) => (
-          <React.Fragment key={item}>
-            <button
-              onClick={() => setActiveTab(item)}
+          <React.Fragment key={item.name}>
+            <Link
+              to={item.path}
               className={`px-6 py-2 rounded-full transition-all duration-200 text-sm ${
-                activeTab === item
+                location.pathname === item.path
                   ? 'bg-white text-black shadow-sm'
                   : 'text-gray-600 hover:text-gray-800'
               }`}
             >
-              {item}
-            </button>
+              {item.name}
+            </Link>
             {index < navItems.length - 1 && (
               <div className="h-6 w-px bg-gray-300 mx-2" />
             )}
