@@ -1,12 +1,13 @@
-import Navbar from "./components/overview/navbar"
-import Graph from "./components/overview/graph"
+
+
 
 import './App.css'
+import Home from "./components/overview/Home"
 const App = () => {
   return (
     <div>
-    <Navbar></Navbar>
-    <Graph></Graph>
+   <Home></Home>
+    {/* <Graph></Graph> */}
    
     
     </div>
