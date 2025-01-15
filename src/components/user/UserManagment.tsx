@@ -1,12 +1,11 @@
-
-
-
-
+import Navbar from "../overview/navbar"
 
 const UserManagment = () => {
   return (
     <div>
-      User Management
+
+      <Navbar></Navbar>
+      
     </div>
   )
 }
