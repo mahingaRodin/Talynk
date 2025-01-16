@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Sidebar from './sidebar';
 import Videos from '../overview/Videos'
 import Trending from './Trending';
-import { data } from '../../data';
+ 
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; 
+import Cards from '../Cards';
+import {data as originalData} from '../../data.ts'
 
 const Graph = () => {
   const [filter, setFilter] = useState('Current'); 
@@ -23,20 +25,7 @@ const Graph = () => {
       
       <div className="w-[75%] p-6">
         {/* Wrapper for the data items */}
-        <div className="flex flex-wrap gap-7">
-          {data.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col items-center rounded-2xl border border-blue p-4 bg-white w-[210px]"
-            >
-              <div className="flex flex-row gap-5">
-                <div className="text-4xl font-bold text-red mb-2">{item.count}</div>
-                <div className="text-lg font-medium mb-2">{item.text}</div>
-              </div>
-              <img src={item.image} alt="Graph" className="h-[80px] w-[290px]" />
-            </div>
-          ))}
-        </div>
+       <Cards data={originalData}></Cards>
 
         {/* Title and Filter Bar */}
         <div className="flex items-center justify-between pr-10 pl-3 mt-4 relative">
