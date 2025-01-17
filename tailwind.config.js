@@ -13,7 +13,8 @@ export default {
         red:'#FF3B30',
         black1:'#2F3037',
         kyan:'#D4E8F6',
-        lightGrey:'#F8F9FE'
+        lightGrey:'#F8F9FE',
+        bgGrey:'#8F9098'
       },
     },
   },
