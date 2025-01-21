@@ -4,6 +4,7 @@ import Navbar from "../overview/navbar";
 import { FiSearch, FiFilter, FiChevronDown, FiArrowDown } from "react-icons/fi"
 import { data as originalData } from "../../data";
 import Table from '../table'
+import Page from '../../app/payments/page'
 
 const UserManagment = () => {
   const [activeTab, setActiveTab] = useState("Tab1"); // State to track the active tab
@@ -84,7 +85,7 @@ const UserManagment = () => {
 
       </div>
       <div className="p-4 mx-3 w-[70%]">
-        <Table></Table>
+       <Page></Page>
       </div>
     </div>
   );
