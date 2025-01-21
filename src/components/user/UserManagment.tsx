@@ -84,7 +84,7 @@ const UserManagment = () => {
 
 
       </div>
-      <div className="p-4 mx-3 w-[70%]">
+      <div className="p-4 mx-3 w-[65%]">
        <Page></Page>
       </div>
     </div>

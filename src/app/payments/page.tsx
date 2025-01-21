@@ -6,10 +6,10 @@ import { DataTable } from "./data-table";
 async function getData(): Promise<Payment[]> {
   return [
     {
-      id: "728ed52f",
-      amount: 100,
+      id: "728ed52g",
+      amount: 140,
       status: "pending",
-      email: "m@example.com",
+      email: "laulanyumbayire@gmail.com",
     },
     {
       id: "728ed52g",
@@ -17,6 +17,24 @@ async function getData(): Promise<Payment[]> {
       status: "pending",
       email: "m@example.com",
     },
+    {
+        id: "728ed52g",
+        amount: 100,
+        status: "pending",
+        email: "m@example.com",
+      },
+      {
+        id: "728ed52g",
+        amount: 100,
+        status: "pending",
+        email: "m@example.com",
+      },
+      {
+        id: "728ed52g",
+        amount: 100,
+        status: "pending",
+        email: "m@example.com",
+      },
     // ...other entries
   ];
 }
