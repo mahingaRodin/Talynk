@@ -14,7 +14,7 @@ interface CardsProps {
 const Cards: React.FC<CardsProps> = ({ data }) => {
   return (
     <div>
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-3">
         {data.map((item) => (
           <div
             key={item.id}

@@ -21,18 +21,18 @@ const Graph = () => {
   };
 
   return (
-    <div className="flex w-full px-4">
+    <div className="flex flex-col md:flex-row w-full">
       
-      <div className="w-[75%] p-6">
+      <div className="w-full md:w-[75%] p-6">
         {/* Wrapper for the data items */}
        <Cards data={originalData}></Cards>
 
         {/* Title and Filter Bar */}
-        <div className="flex items-center justify-between pr-10 pl-3 mt-4 relative">
+        <div className="flex flex-row justify-between pt-4">
           <h1 className="text-grey font-bold text-xl">Pending Videos</h1>
 
           
-          <div className="relative z-20"> 
+          <div className=" relative w-[20%] justify-center flex z-20"> 
             <div
               className="flex items-center gap-2 p-2 rounded-xl border-2 border-grey cursor-pointer bg-white"
               onClick={toggleDropdown}
@@ -72,7 +72,7 @@ const Graph = () => {
         </div>
       </div>
 
-      <div className='w-[25%] '>
+      <div className='w-full md:w-[25%]'>
         <Sidebar></Sidebar>
 
       </div>

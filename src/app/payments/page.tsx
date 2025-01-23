@@ -60,7 +60,7 @@ export default function DemoPage() {
 
   // Render loading state or the data table
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-3">
       {loading ? (
         <p>Loading...</p>
       ) : (

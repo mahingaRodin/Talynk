@@ -1,9 +1,10 @@
 import  { useState } from "react";
+import BlackCard from './BlackCard'
 import Cards from "../Cards";
 import Navbar from "../overview/navbar";
 import { FiSearch, FiFilter, FiChevronDown, FiArrowDown } from "react-icons/fi"
 import { data as originalData } from "../../data";
-import Table from '../table'
+
 import Page from '../../app/payments/page'
 
 const UserManagment = () => {
@@ -32,9 +33,10 @@ const UserManagment = () => {
   return (
     <div>
       <Navbar />
-      <div className="w-[70%] p-4">
+      <div className="flex flex-row">
+      <div className="w-[65%] p-4">
         <Cards data={modifiedData} />
-        <div className="bg-gray-100 p-1.5  rounded-full mt-4 w-[78%]">
+        <div className="bg-gray-100 p-1.5  rounded-full mt-4 w-[70%]">
           <div className="flex justify-between w-full">
             {/* Tabs */}
             <button
@@ -79,14 +81,19 @@ const UserManagment = () => {
       <FiChevronDown className="w-4 h-4 ml-1 text-gray-400" />
     </button>
   </div>
-</div>          
-
-
-
-      </div>
-      <div className="p-4 mx-3 w-[65%]">
+</div>   
+<div className="mx-2 w-[78%]">
        <Page></Page>
+      </div>       
+
+
+
       </div>
+      <div className="w-[40%]  mt-4">
+        <BlackCard></BlackCard>
+      </div>
+      </div>
+    
     </div>
   );
 };
