@@ -6,5 +6,8 @@ export const userProfile = {
     posts: 20,
     subscribers: 20,
     views: '4.4K',
-    image: {lanez}, // Placeholder for the image URL
+    image: {lanez}, 
+    visitsNber:'2,345'
+    
+    // Placeholder for the image URL
   };

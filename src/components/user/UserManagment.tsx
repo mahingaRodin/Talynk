@@ -89,7 +89,7 @@ const UserManagment = () => {
 
 
       </div>
-      <div className="w-[40%]  mt-4">
+      <div className="w-[40%]  mt-2">
         <BlackCard></BlackCard>
       </div>
       </div>

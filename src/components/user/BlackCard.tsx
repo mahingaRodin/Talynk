@@ -1,6 +1,11 @@
 import { userProfile } from './data'; // Adjust the path as necessary
-
+import { useState } from 'react';
 const BlackCard = () => {
+  const [activeTab, setActiveTab] = useState('section1');
+
+  const handleTabClick = (tab: string) => {
+      setActiveTab(tab);
+  };
   return (
     <div className="">
       <div className="bg-black text-white p-4 rounded-[28px] min-h-[50px] w-[95%] ">
@@ -33,11 +38,55 @@ const BlackCard = () => {
                   <span>Views</span>
                 </div>
               </div>
+
+
+
             </div>
           </div>
+          <div className='flex justify-around'>
+            <div className='flex flex-row gap-5'>
+              <h1 className='font-bold'>{userProfile.visitsNber}</h1>
+              <p className='text-white'>Total Profile Visits</p>
+            </div>
+            <p>Boost Profile</p>
+
+          </div>
+          <div>
+          <div className=" pt-9 flex justify-around mb-4">
+                <div 
+                    className={`cursor-pointer p-2 ${activeTab === 'section1' ? 'border-b-2 border-white' : ''}`} 
+                    onClick={() => handleTabClick('section1')}
+                >
+                    Section 1
+                </div>
+                <span className='h-5 border-2 border-white relative top-4'></span>
+                <div 
+                    className={`cursor-pointer p-2 ${activeTab === 'pending' ? 'border-b-2 border-white' : ''}`} 
+                    onClick={() => handleTabClick('pending')}
+                >
+                    Pending
+                </div>
+            </div>
+
+            {/* Content based on active tab */}
+            <div className="mt-4">
+                {activeTab === 'section1' ? (
+                    <div>
+
+                    </div>
+                ) : (
+                    // <PendingContent />
+                    <div>jsdhkfjh</div>
+                )}
+            </div>
         </div>
-        {/* Content will be added here */}
-      </div>
+
+          </div>
+
+          
+          
+        </div>
+        
    
   )
 }
