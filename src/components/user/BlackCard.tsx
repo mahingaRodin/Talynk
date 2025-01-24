@@ -1,7 +1,8 @@
 import { userProfile } from './data'; // Adjust the path as necessary
 import { useState } from 'react';
+import CustomButton from '../overview/customButton';
 const BlackCard = () => {
-  const [activeTab, setActiveTab] = useState('section1');
+  const [activeTab, setActiveTab] = useState('pending');
 
   const handleTabClick = (tab: string) => {
       setActiveTab(tab);
@@ -60,7 +61,7 @@ const BlackCard = () => {
                     Section 1
                 </div>
                 <span className='h-5 border-2 border-white relative top-4'></span>
-                <div 
+                <div
                     className={`cursor-pointer p-2 ${activeTab === 'pending' ? 'border-b-2 border-white' : ''}`} 
                     onClick={() => handleTabClick('pending')}
                 >
@@ -72,16 +73,55 @@ const BlackCard = () => {
             <div className="mt-4">
                 {activeTab === 'section1' ? (
                     <div>
+                        <div className="flex flex-row flex-wrap gap-3">
+                      {Array(12).fill(userProfile.image.lanez).map((image, index) => (
+                        <div key={index} className="w-32 h-32 rounded-xl  overflow-hidden">
+                          <img src={image} alt={`Image ${index + 1}`} className="w-full h-full object-cover" />
+                        </div>
+                      ))}
+                    </div>
+                      
 
                     </div>
                 ) : (
                     // <PendingContent />
-                    <div>jsdhkfjh</div>
+                    <div className="flex flex-row flex-wrap gap-3">
+                      {Array(12).fill(userProfile.thumb.thumb).map((image, index) => (
+                        <div key={index} className="w-32 h-32 rounded-xl  overflow-hidden">
+                          <img src={image} alt={`Image ${index + 1}`} className="w-full h-full object-cover" />
+                        </div>
+                      ))}
+                    </div>
                 )}
             </div>
         </div>
 
           </div>
+          <div className='flex flex-row pt-4 justify-around w-[94%]'>
+          <CustomButton
+            text="Message"
+            bgColor="#006FFD"
+            textColor="#fff"
+            border="#006FFD"
+            extraStyles={{ fontWeight: 600, width:'180px'}}
+          />
+           <CustomButton
+            text="Freeze"
+            bgColor="#2F3037"
+            textColor="#fff"
+            border=""
+            extraStyles={{ fontWeight: 600, width:'180px' }}
+          />
+           <CustomButton
+            text="Delete"
+            bgColor="#2F3037"
+            textColor="#fff"
+            border=""
+            extraStyles={{ fontWeight: 600, width:'180px' }}
+          />
+            
+          </div>
+         
 
           
           

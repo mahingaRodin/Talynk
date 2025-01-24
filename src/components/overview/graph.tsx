@@ -34,7 +34,7 @@ const Graph = () => {
           
           <div className=" relative w-[20%] justify-center flex z-20"> 
             <div
-              className="flex items-center gap-2 p-2 rounded-xl border-2 border-grey cursor-pointer bg-white"
+              className="flex items-center  gap-2 p-2 rounded-xl border-2 border-grey cursor-pointer bg-white"
               onClick={toggleDropdown}
             >
               <span className="text-gray-600 font-medium">Filter by: {filter}</span>
