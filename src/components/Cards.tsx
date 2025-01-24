@@ -8,10 +8,10 @@ interface CardItem {
 }
 
 interface CardsProps {
-  data: CardItem[];
+  data?: CardItem[];
 }
 
-const Cards: React.FC<CardsProps> = ({ data }) => {
+const Cards: React.FC<CardsProps> = ({ data = [] }) => {
   return (
     <div>
       <div className="flex flex-wrap gap-3">

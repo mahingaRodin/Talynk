@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import Tab from '../../Reusable/tab'
 import BlackCard from './BlackCard'
 import Cards from "../Cards";
 import Navbar from "../overview/navbar";
@@ -8,7 +8,7 @@ import { data as originalData } from "../../data";
 import Page from '../../app/payments/page'
 
 const UserManagment = () => {
-  const [activeTab, setActiveTab] = useState("Tab1"); // State to track the active tab
+  // State to track the active tab
 
   // Take the first 4 cards from the original data
   const limitedData = originalData.slice(0, 4);
@@ -36,28 +36,13 @@ const UserManagment = () => {
       <div className="flex flex-row">
       <div className="w-[65%] p-4">
         <Cards data={modifiedData} />
-        <div className="bg-gray-100 p-1.5  rounded-full mt-4 w-[70%]">
-          <div className="flex justify-between w-full">
-            {/* Tabs */}
-            <button
-              onClick={() => setActiveTab("Tab1")}
-              className={`px-4 py-2 rounded-full text-sm ${
-                activeTab === "Tab1" ? "bg-white text-black shadow-sm w-full" : "text-gray-600 w-full"
-              }`}
-            >
-              Active Accounts
-            </button>
-            <div className="border-r-2 border-gray-300 mx-2"></div> {/* Small line between tabs */}
-            <button
-              onClick={() => setActiveTab("Tab2")}
-              className={`px-4 py-2 rounded-full text-sm ${
-                activeTab === "Tab2" ? "bg-white text-black shadow-sm w-full" : "text-gray-600 w-full"
-              }`}
-            >
-             Freezed
-            </button>
-          </div>
+
+        <div>
+          <Tab tabs={[{label: "Active Account"}, {label:'Freezed'}]}></Tab>
         </div>
+       
+
+
         <div className="w-[75%] px-4 flex items-center justify-between py-4">
   {/* Title */}
   <h1 className="text-xl font-bold">Accounts List</h1>
