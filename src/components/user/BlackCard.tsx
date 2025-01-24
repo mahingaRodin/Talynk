@@ -8,8 +8,8 @@ const BlackCard = () => {
       setActiveTab(tab);
   };
   return (
-    <div className="">
-      <div className="bg-black text-white p-4 rounded-[28px] min-h-[50px] w-[95%] ">
+    <div className="w-[84%] pb-6">
+      <div className="bg-black text-white p-4 rounded-[28px] min-h-[50px] w-[86%] ">
         {/* Profile Information */}
         <div className="flex flex-row justify-around mb-4">
           <div className='flex-col flex'>
@@ -74,7 +74,7 @@ const BlackCard = () => {
                 {activeTab === 'section1' ? (
                     <div>
                         <div className="flex flex-row flex-wrap gap-3">
-                      {Array(12).fill(userProfile.image.lanez).map((image, index) => (
+                      {Array(12).fill(userProfile.flight.flight).map((image, index) => (
                         <div key={index} className="w-32 h-32 rounded-xl  overflow-hidden">
                           <img src={image} alt={`Image ${index + 1}`} className="w-full h-full object-cover" />
                         </div>
@@ -97,27 +97,27 @@ const BlackCard = () => {
         </div>
 
           </div>
-          <div className='flex flex-row pt-4 justify-around w-[94%]'>
+          <div className='flex flex-row pt-4 justify-around w-[84%]'>
           <CustomButton
             text="Message"
             bgColor="#006FFD"
             textColor="#fff"
             border="#006FFD"
-            extraStyles={{ fontWeight: 600, width:'180px'}}
+            extraStyles={{ fontWeight: 600, width:'120px'}}
           />
            <CustomButton
             text="Freeze"
             bgColor="#2F3037"
             textColor="#fff"
             border=""
-            extraStyles={{ fontWeight: 600, width:'180px' }}
+            extraStyles={{ fontWeight: 600, width:'120px' }}
           />
            <CustomButton
             text="Delete"
             bgColor="#2F3037"
             textColor="#fff"
             border=""
-            extraStyles={{ fontWeight: 600, width:'180px' }}
+            extraStyles={{ fontWeight: 600, width:'120px' }}
           />
             
           </div>

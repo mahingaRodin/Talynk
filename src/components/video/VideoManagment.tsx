@@ -1,10 +1,11 @@
-import React from 'react'
+
+import Navbar from '../overview/navbar'
 
 const VideoManagment = () => {
   return (
     <div>
-      VideoManagment
-      VideoManagment
+      <Navbar></Navbar>
+     
     </div>
   )
 }
