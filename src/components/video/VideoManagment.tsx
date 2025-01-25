@@ -4,10 +4,11 @@ import Navbar from '../overview/navbar'
 import Header from '@/Reusable/Header'
 import { data as originalData } from "../../data";
 import Tab from '@/Reusable/tab';
+import Videos from '../overview/Videos'
 
 
 const VideoManagment = () => {
-  const limitedData = originalData.slice(0, 4);
+  const limitedData = originalData.slice(0, 5);
   return (
     <div>
       <Navbar></Navbar>
@@ -22,6 +23,9 @@ const VideoManagment = () => {
 
       <div className='px-6'>
         <Tab tabs={[{label:'Posts'}, {label:'Advertisements'}]}></Tab>
+      </div>
+      <div>
+      <Videos />
       </div>
       </div>
      </div>
