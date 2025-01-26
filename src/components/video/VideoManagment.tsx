@@ -5,6 +5,7 @@ import Header from '@/Reusable/Header'
 import { data as originalData } from "../../data";
 import Tab from '@/Reusable/tab';
 import Videos from '../overview/Videos'
+import Trending from '../overview/Trending';
 
 
 const VideoManagment = () => {
@@ -26,6 +27,9 @@ const VideoManagment = () => {
       </div>
       <div>
       <Videos />
+      </div>
+      <div>
+        <Trending></Trending>
       </div>
       </div>
      </div>
