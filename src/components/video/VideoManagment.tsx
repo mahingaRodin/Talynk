@@ -10,6 +10,7 @@ import video from '../../assets/video.mp4';
 import thumb from '../../assets/thumb1.jpg'
 import Sidebar from '../overview/sidebar';
 import Pending from '@/Reusable/pending';
+import { Upload } from 'lucide-react';
 
 const VideoManagment = () => {
   const limitedData = originalData.slice(0, 5);
@@ -40,13 +41,20 @@ const VideoManagment = () => {
         <Trending></Trending>
       </div>
       </div>
-      <div className='flex justify-center '>
-        <div className=''>
+      <div className='flex flex-col gap-6 pt-3'>
+        <div className=' '>
           <SingleVideo
           videoSrc={video}
           thumbnailSrc={thumb}
           >
           </SingleVideo>
+          <div className='pt-2'>
+          <button className="flex items-center bg-blue text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-600">
+      <Upload className="h-5 w-5 mr-2" /> {/* Use the Lucide Upload icon */}
+      upload an ad
+    </button>
+          </div>
+          
         </div>
         <div>
           <Sidebar></Sidebar>
