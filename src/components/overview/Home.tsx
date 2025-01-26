@@ -9,7 +9,10 @@ const Home=()=>{
     <div>
    
        <Navbar></Navbar>
-       <Graph></Graph>
+       <div className="pt-5">
+               <Graph></Graph>
+       </div>
+
  
     </div>
     

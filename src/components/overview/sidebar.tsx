@@ -24,7 +24,7 @@ const DropdownFilter = () => {
   };
 
   return (
-    <div className="fixed top-0 bottom-0 h-screen w-[30%] max-w-sm overflow-y-auto scrollbar-none pt-[110px] pb-4">
+    <div className="">
       {/* Dropdown Button */}
       <div
         onClick={() => setIsOpen((prev) => !prev)}
@@ -38,7 +38,7 @@ const DropdownFilter = () => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute left-0 z-10 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg">
+        <div className="z-10 mt-2 bg-white border border-gray-300 rounded-md shadow-lg">
           {options.map((option, index) => (
             <div
               key={index}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import Sidebar from './sidebar';
 import Videos from '../overview/Videos'
 import Trending from './Trending';
@@ -12,9 +12,9 @@ const Graph = () => {
  
 
   return (
-    <div className="flex flex-col md:flex-row w-full">
+    <div className="flex justify-between px-6">
       
-      <div className="w-full md:w-[75%] p-6">
+      <div className="">
         {/* Wrapper for the data items */}
        <Cards data={originalData}></Cards>
 
@@ -31,7 +31,7 @@ const Graph = () => {
         </div>
       </div>
 
-      <div className='w-full md:w-[25%]'>
+      <div className=''>
         <Sidebar></Sidebar>
 
       </div>
