@@ -18,11 +18,11 @@ const pending = () => {
     };
   return (
     <div>
-         <div className="flex flex-row justify-between pt-4 px-2 w-[95%]">
+         <div className="flex  justify-between pt-4 px-4">
           <h1 className="text-grey font-bold text-xl">Pending Videos</h1>
 
           
-          <div className=" relative w-[20%] justify-center flex z-20"> 
+          <div className=" relative z-50"> 
             <div
               className="flex items-center  gap-2 p-2 rounded-xl border-2 border-grey cursor-pointer bg-white"
               onClick={toggleDropdown}
