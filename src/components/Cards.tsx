@@ -9,12 +9,13 @@ interface CardItem {
 
 interface CardsProps {
   data?: CardItem[];
+  extraStyles?: string;
 }
 
-const Cards: React.FC<CardsProps> = ({ data = [] }) => {
+const Cards: React.FC<CardsProps> = ({ data = [], extraStyles = "" }) => {
   return (
-    <div>
-      <div className="flex flex-wrap gap-3">
+    <div >
+      <div  className={`flex flex-wrap gap-3 ${extraStyles}`}>
         {data.map((item) => (
           <div
             key={item.id}

@@ -16,7 +16,7 @@ const Graph = () => {
       
       <div className="">
         {/* Wrapper for the data items */}
-       <Cards data={originalData}></Cards>
+       <Cards data={originalData} extraStyles='gap-6'></Cards>
 
         {/* Title and Filter Bar */}
        <div>
