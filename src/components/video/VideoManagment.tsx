@@ -26,6 +26,9 @@ const VideoManagment = () => {
         <Tab tabs={[{label:'Posts'}, {label:'Advertisements'}]}></Tab>
       </div>
       <div>
+        
+      </div>
+      <div>
       <Videos />
       </div>
       <div>
