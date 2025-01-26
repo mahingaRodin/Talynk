@@ -8,8 +8,8 @@ const BlackCard = () => {
       setActiveTab(tab);
   };
   return (
-    <div className="w-[84%] pb-6">
-      <div className="bg-black text-white p-4 rounded-[28px] min-h-[50px] w-[86%] ">
+    <div className="pb-6 w-[480px]">
+      <div className="bg-black text-white p-4 rounded-[28px] ">
         {/* Profile Information */}
         <div className="flex flex-row justify-around mb-4">
           <div className='flex-col flex'>
@@ -97,7 +97,7 @@ const BlackCard = () => {
         </div>
 
           </div>
-          <div className='flex flex-row pt-4 justify-around w-[84%]'>
+          <div className='flex flex-row pt-4 justify-evenly'>
           <CustomButton
             text="Message"
             bgColor="#006FFD"

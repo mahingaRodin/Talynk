@@ -33,8 +33,8 @@ const UserManagment = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-row">
-      <div className="w-[65%] p-4">
+      <div className="flex justify-between px-5">
+      <div className="">
         <Cards data={modifiedData} />
 
         <div>
@@ -43,7 +43,7 @@ const UserManagment = () => {
        
 
 
-        <div className="w-[75%] px-4 flex items-center justify-between py-4">
+        <div className="px-4 flex items-center justify-between py-4">
   {/* Title */}
   <h1 className="text-xl font-bold">Accounts List</h1>
 
@@ -67,14 +67,14 @@ const UserManagment = () => {
     </button>
   </div>
 </div>   
-<div className="mx-2 w-[78%]">
+<div className="mx-2">
        <Page></Page>
       </div>       
 
 
 
       </div>
-      <div className="w-[40%]  mt-2">
+      <div className="">
         <BlackCard></BlackCard>
       </div>
       </div>
