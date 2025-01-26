@@ -11,7 +11,7 @@ interface VideoListHeaderProps {
 
 const VideoListHeader: React.FC<VideoListHeaderProps> = ({ title }) => {
     return (
-      <div className="w-[80%] px-4 flex items-center justify-between py-4">
+      <div className="px-5 flex items-center justify-between py-4">
         {/* Title */}
         <h1 className="text-xl font-bold">{title}</h1>
   

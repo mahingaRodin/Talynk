@@ -7,8 +7,8 @@ interface TabProps {
 const Tab: React.FC<TabProps> = ({ tabs }) => {
     const [activeTab, setActiveTab] = useState(tabs[0].label);
   return (
-    <div>
-        <div className="bg-gray-100 p-1.5  rounded-full mt-4 w-[70%]">
+    <div className='px-5'>
+        <div className="bg-gray-100 p-1.5 rounded-full mt-4 ">
 <div className="flex justify-between w-full">
   {/* Tabs */}
   {tabs.map((tab) => (

@@ -23,7 +23,7 @@ const VideoManagment = () => {
    <Header title='Video Lists'></Header>
       </div>
       <div className='p-5'>
-        <Cards data={limitedData}></Cards>
+        <Cards data={limitedData} extraStyles='gap-6'></Cards>
       </div>
 
       <div className='px-6'>
