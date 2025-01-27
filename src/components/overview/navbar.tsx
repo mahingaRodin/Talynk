@@ -2,7 +2,10 @@ import Navigation from "./navigation"
 import logo from '../../assets/tLogo.png'
 import { IoNotificationsOutline } from "react-icons/io5"
 import CustomButton from "./customButton"
+import { useNavigate } from "react-router-dom"
 const navbar = () => {
+
+  const navigate = useNavigate();
   return (
     
        <header className="sticky top-0 left-0 right-0 z-50  bg-white">
@@ -27,8 +30,8 @@ const navbar = () => {
       {/* Notification and Buttons */}
       <div className="flex items-center gap-6">
         {/* Notification Icon */}
-        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#E4F4FF] border-2 border-blue">
-          <IoNotificationsOutline color="#1782CF" />
+        <div onClick={()=>navigate('/home')} className="flex items-center justify-center w-10 h-10 rounded-full bg-[#E4F4FF] border-2 border-blue cursor-pointer">
+          <IoNotificationsOutline color="#1782CF"  />
         </div>
 
         {/* Buttons - Desktop */}

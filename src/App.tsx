@@ -3,6 +3,7 @@ import UserManagement from './components/user/UserManagment';
 import VideoManagement from './components/video/VideoManagment';
 import Approvers from './components/Approver/Approver';
 import Home from './components/overview/Home';
+import Ahome from './Approvers Portal/Home'
 import './App.css'
 function App() {
   return (
@@ -13,7 +14,10 @@ function App() {
         <Route path="/user-management" element={<UserManagement />} />
         <Route path="/video-management" element={<VideoManagement />} />
         <Route path="/approvers" element={<Approvers />} />
+        <Route path="/home" element={<Ahome />} />
+        
       </Routes>
+      
     </Router>
   );
 }
