@@ -1,6 +1,6 @@
 // src/components/DayComponent.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { Sun, ChevronDown, Filter } from 'lucide-react';
+import {  ChevronDown, Filter } from 'lucide-react';
 
 const DayComponent: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
