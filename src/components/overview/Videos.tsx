@@ -50,9 +50,13 @@ type Post = {
   timeAgo: string;
   videoSrc: string;
   thumbnail: string;
+  
 };
+interface SocialPostProps {
+  extraStyles?: string;
+}
 
-const SocialPost: React.FC<{ post: Post }> = ({ post }) => {
+const SocialPost: React.FC<SocialPostProps & { post: Post }> = ({ post, extraStyles }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -80,7 +84,7 @@ const SocialPost: React.FC<{ post: Post }> = ({ post }) => {
   };
 
   return (
-    <div className="w-[372px] min-w-[372px] mx-2 first:ml-0 last:mr-0">
+    <div className={`w-[372px] min-w-[372px] mx-2 first:ml-0 last:mr-0 ${extraStyles}`}>
       <div className="bg-white  rounded-xl overflow-hidden">
         <div className="relative w-[372px] h-[372px]"> {/* Made container square */}
           {/* Dark gradient overlay for header */}

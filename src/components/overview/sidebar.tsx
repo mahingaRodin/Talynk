@@ -24,7 +24,7 @@ const DropdownFilter = () => {
   };
 
   return (
-    <div className="">
+    <div className="pb-4">
       {/* Dropdown Button */}
       <div
         onClick={() => setIsOpen((prev) => !prev)}

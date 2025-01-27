@@ -26,7 +26,7 @@ const VideoManagment = () => {
         <Cards data={limitedData} extraStyles='gap-6'></Cards>
       </div>
 
-      <div className='px-6'>
+      <div className='px-8'>
         <Tab tabs={[{label:'Posts'}, {label:'Advertisements'}]}></Tab>
       </div>
       <div>
