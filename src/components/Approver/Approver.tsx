@@ -5,6 +5,7 @@ import { data as originalData } from "../../data"
 import Sidebar from "../overview/sidebar"
 import Tab from "@/Reusable/tab"
 import Page from "@/app/payments/page"
+import gabin from '../../assets/gabin.png'
 
 const Approver = () => {
   const limitedData = originalData.slice(0, 4);
@@ -30,6 +31,19 @@ const Approver = () => {
           </div>
         </div>
         <div>
+          <div>
+            
+          </div>
+          
+          <div className="w-[130px] h-[130px] mx-auto  rounded-full overflow-hidden border-2 border-blue">
+            <img src={gabin} alt="Description" className="w-full h-full object-cover" />
+          </div>
+          <div className="flex justify-center">
+            <h1 className="font-bold text-lg">Lau_lanez 
+               <span className="text-[14px] text-grey ml-5">Musician</span></h1>
+           
+          </div>
+          
           <Sidebar></Sidebar>
         </div>
       </div>
