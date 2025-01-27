@@ -5,7 +5,9 @@ import { data as originalData } from "../../data"
 import Sidebar from "../overview/sidebar"
 import Tab from "@/Reusable/tab"
 import Page from "@/app/payments/page"
+import Dropdown from "../../Reusable/dropDown"
 import gabin from '../../assets/gabin.png'
+import graph from '../../assets/g3.svg'
 
 const Approver = () => {
   const limitedData = originalData.slice(0, 4);
@@ -42,6 +44,17 @@ const Approver = () => {
             <h1 className="font-bold text-lg">Lau_lanez 
                <span className="text-[14px] text-grey ml-5">Musician</span></h1>
            
+          </div>
+          <div className="flex justify-center p-4">
+<Dropdown></Dropdown>
+          </div>
+          <div className="flex justify-center">
+            <h1 className="font-bold text-lg">21 
+               <span className="text-[14px] text-grey ml-5">Reviewed</span></h1>
+           
+          </div>
+          <div className="flex justify-center">
+            <img src={graph} alt="" />
           </div>
           
           <Sidebar></Sidebar>
