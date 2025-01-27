@@ -1,4 +1,4 @@
-import Navbar from "@/components/overview/navbar"
+import Navbar from "./Navbar"
 import Sidebar from "@/components/overview/sidebar"
 import Cards from "../components/Cards"
 import { data as originalData } from "../data"

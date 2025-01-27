@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navigation = () => {
+interface NavigationProps {
+  removeTab?: string | null; // Define prop types
+}
+
+const Navigation: React.FC<NavigationProps> = ({ removeTab = null }) => {
   const location = useLocation(); // Get current path to highlight the active tab
 
   const navItems = [
@@ -9,7 +13,7 @@ const Navigation = () => {
     { name: 'User Management', path: '/user-management' },
     { name: 'Video Management', path: '/video-management' },
     { name: 'Approvers', path: '/approvers' },
-  ];
+  ].filter(item => removeTab === null || item.name !== removeTab); // Filter out the tab to remove if provided
 
   return (
     <nav className="bg-gray-100 p-2 rounded-full w-full max-w-3xl mx-auto">
