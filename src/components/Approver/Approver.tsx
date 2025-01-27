@@ -41,8 +41,10 @@ const Approver = () => {
           <div className="flex justify-center">
             <h1 className="font-bold text-lg">Lau_lanez 
                <span className="text-[14px] text-grey ml-5">Musician</span></h1>
+              
            
           </div>
+          
           
           <Sidebar></Sidebar>
         </div>
