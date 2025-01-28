@@ -10,7 +10,7 @@ const Home = () => {
     const limitedData = originalData.slice(0, 5);
   return (
     <div>
-        <div>
+        <div className="">
             <Navbar></Navbar>
         </div>
         <div className="flex justify-between px-9 ">

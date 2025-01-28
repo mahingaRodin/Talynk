@@ -5,6 +5,8 @@ import Approvers from './components/Approver/Approver';
 import Home from './components/overview/Home';
 import Ahome from './Approvers Portal/Home'
 import Landing from './Landing';
+import  User from './Approvers Portal/user'
+import Video from './Approvers Portal/video'
 import './App.css'
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/video-management" element={<VideoManagement />} />
         <Route path="/approvers" element={<Approvers />} />
         <Route path="/home" element={<Ahome />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/video" element={<Video />} />
         
       </Routes>
       

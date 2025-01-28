@@ -1,4 +1,4 @@
-import Navigation from "../components/overview/navigation"
+import Navigation from "./navigation"
 import logo from '../assets/tLogo.png'
 import { IoNotificationsOutline } from "react-icons/io5"
 import CustomButton from "../components/overview/customButton"
