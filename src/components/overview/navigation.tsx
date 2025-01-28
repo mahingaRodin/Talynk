@@ -9,7 +9,7 @@ const Navigation: React.FC<NavigationProps> = ({ removeTab = null }) => {
   const location = useLocation(); // Get current path to highlight the active tab
 
   const navItems = [
-    { name: 'Overview', path: '/' },
+    { name: 'Overview', path: '/home1' },
     { name: 'User Management', path: '/user-management' },
     { name: 'Video Management', path: '/video-management' },
     { name: 'Approvers', path: '/approvers' },
