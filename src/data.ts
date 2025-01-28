@@ -34,6 +34,18 @@ export const data = [
     text: 'Users',   
     image:g2     
   },
+  {
+    id: 6,
+    count: '5.4K',           
+    text: 'Users',   
+    image:g2     
+  },
+  {
+    id: 7,
+    count: '5.4K',           
+    text: 'Users',   
+    image:g2     
+  },
   
   
 ];

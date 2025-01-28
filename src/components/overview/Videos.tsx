@@ -39,6 +39,16 @@ const postsData = [
     videoSrc: video,
     thumbnail: thumb3
   },
+  {
+  id: 4,
+  author: {
+    name: "Mike Wilson",
+    avatar: pic
+  },
+  timeAgo: "5 hours ago",
+  videoSrc: video,
+  thumbnail: thumb3
+},
   
 ];
 type Post = {
@@ -152,11 +162,13 @@ const SocialPost: React.FC<SocialPostProps & { post: Post }> = ({ post, extraSty
   );
 };
 
-const SocialFeed = () => {
+const SocialFeed = ({ showFourPosts = false }) => {
+  const displayedPosts = showFourPosts ? postsData : postsData.slice(0, 3);
+
   return (
     <div className="w-full overflow-x-auto">
       <div className="flex flex-nowrap p-4">
-        {postsData.map(post => (
+        {displayedPosts.map(post => (
           <SocialPost key={post.id} post={post} />
         ))}
       </div>
