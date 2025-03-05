@@ -2,48 +2,17 @@ import type React from "react";
 import { useState, type FormEvent } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-interface SearchResult {
-  id: number;
-  type: "user" | "post";
-  name?: string;
-  username?: string;
-  avatar?: string;
-  image?: string;
-  caption?: string;
-}
+import { useSearchPosts } from "../../api/hooks/usePosts";
+import Post from "../components/Post";
 
 const SearchPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([
-    {
-      id: 1,
-      type: "user",
-      name: "John Doe",
-      username: "@johndoe",
-      avatar: "/placeholder.svg?height=50&width=50",
-    },
-    {
-      id: 2,
-      type: "post",
-      image: "/placeholder.svg?height=200&width=200",
-      caption: "Amazing talent!",
-    },
-    {
-      id: 3,
-      type: "user",
-      name: "Jane Smith",
-      username: "@janesmith",
-      avatar: "/placeholder.svg?height=50&width=50",
-    },
-    // Add more mock results as needed
-  ]);
+  const { data: searchResults, isLoading } = useSearchPosts(searchQuery);
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
-    // Implement actual search logic here
-    console.log("Searching for:", searchQuery);
+    // The search will be triggered automatically by the query hook
   };
 
   return (
@@ -52,7 +21,7 @@ const SearchPage: React.FC = () => {
         <div className="relative">
           <input
             type="text"
-            placeholder="Search for talents, posts, or hashtags"
+            placeholder="Search for posts, captions, or categories"
             className="w-full bg-gray-800 text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -61,34 +30,17 @@ const SearchPage: React.FC = () => {
         </div>
       </form>
 
-      <div className="space-y-4">
-        {searchResults.map((result) => (
-          <div key={result.id} className="bg-gray-900 p-4 rounded-lg">
-            {result.type === "user" ? (
-              <div className="flex items-center space-x-4">
-                <img
-                  src={result.avatar || "/placeholder.svg"}
-                  alt={result.name}
-                  className="w-12 h-12 rounded-full"
-                />
-                <div>
-                  <h3 className="text-white font-medium">{result.name}</h3>
-                  <p className="text-gray-400">{result.username}</p>
-                </div>
-              </div>
-            ) : (
-              <div>
-                <img
-                  src={result.image || "/placeholder.svg"}
-                  alt="Post"
-                  className="w-full h-48 object-cover rounded-lg mb-2"
-                />
-                <p className="text-white">{result.caption}</p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="text-center text-gray-400">Searching...</div>
+      ) : searchResults && searchResults.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {searchResults.map((post) => (
+            <Post key={post.id} {...post} />
+          ))}
+        </div>
+      ) : searchQuery ? (
+        <div className="text-center text-gray-400">No results found</div>
+      ) : null}
     </div>
   );
 };

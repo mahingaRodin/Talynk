@@ -9,29 +9,38 @@ import {
   Bookmark,
   MoreHorizontal,
 } from "lucide-react";
+import { formatDistanceToNow } from "date-fns";
 
 interface PostProps {
-  id: number;
+  id: string;
+  title: string;
+  caption: string;
+  file_url: string;
+  post_category: string;
   user: {
     name: string;
+    username: string;
     avatar: string;
   };
-  image: string;
-  caption: string;
   likes: number;
-  comments: number;
   shares: number;
-  timeAgo?: string;
+  comments: number;
+  created_at: string;
+  status: "pending" | "approved";
 }
 
 const Post: React.FC<PostProps> = ({
-  user,
-  image,
+  id,
+  title,
   caption,
-  likes,
-  comments,
-  shares,
-  timeAgo,
+  file_url,
+  post_category,
+  user,
+  likes = 0,
+  shares = 0,
+  comments = 0,
+  created_at,
+  status,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -46,53 +55,79 @@ const Post: React.FC<PostProps> = ({
     // Here you would typically save/unsave the post on the server
   };
 
+  // Ensure we have valid data
+  const safeUser = {
+    name: user?.name || "Anonymous",
+    username: user?.username || "anonymous",
+    avatar: user?.avatar || "/placeholder.svg",
+  };
+  console.log(safeUser);
+
+  const safeDate = created_at ? new Date(created_at) : new Date();
+
   return (
     <div className="bg-gray-900 rounded-lg overflow-hidden">
-      {/* Post Image */}
+      <div className="p-4 flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <img
+            src={safeUser.avatar}
+            alt={safeUser.name}
+            className="w-10 h-10 rounded-full"
+          />
+          <div>
+            <h3 className="text-white font-medium">{safeUser.name}</h3>
+            <p className="text-gray-400 text-sm">@{safeUser.username}</p>
+          </div>
+        </div>
+        <button className="text-gray-400 hover:text-white">
+          <MoreHorizontal className="h-5 w-5" />
+        </button>
+      </div>
+
       <img
-        src={image}
-        alt={caption}
+        src={file_url || "/placeholder.svg"}
+        alt={title || "Post image"}
         className="w-full aspect-square object-cover"
       />
 
-      {/* Post Info */}
       <div className="p-4">
-        {/* User Info */}
-        <div className="flex items-center space-x-2 mb-4">
-          <img
-            src={user.avatar}
-            alt={user.name}
-            className="w-8 h-8 rounded-full"
-          />
-          <span className="font-medium text-white">{user.name}</span>
-          {timeAgo && (
-            <span className="text-gray-400 text-sm">• {timeAgo}</span>
-          )}
-        </div>
-
-        {/* Caption */}
-        <p className="text-white mb-4">{caption}</p>
-
-        {/* Interaction Buttons */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-1 text-gray-400 hover:text-red-500">
-              <Heart className="h-5 w-5" />
+            <button 
+              onClick={handleLike}
+              className={`text-gray-400 hover:text-red-500 flex items-center space-x-1 ${
+                isLiked ? "text-red-500" : ""
+              }`}
+            >
+              <Heart className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
               <span>{likes}</span>
             </button>
-            <button className="flex items-center space-x-1 text-gray-400 hover:text-blue-500">
+            <button className="text-gray-400 hover:text-blue-500 flex items-center space-x-1">
               <MessageCircle className="h-5 w-5" />
               <span>{comments}</span>
             </button>
-            <button className="flex items-center space-x-1 text-gray-400 hover:text-green-500">
+            <button className="text-gray-400 hover:text-green-500 flex items-center space-x-1">
               <Share2 className="h-5 w-5" />
               <span>{shares}</span>
             </button>
           </div>
-          <button className="text-gray-400 hover:text-yellow-500">
-            <Bookmark className="h-5 w-5" />
+          <button 
+            onClick={handleSave}
+            className={`text-gray-400 hover:text-yellow-500 ${
+              isSaved ? "text-yellow-500" : ""
+            }`}
+          >
+            <Bookmark className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />
           </button>
         </div>
+        <h4 className="text-white font-medium mb-1">{title}</h4>
+        <p className="text-gray-400">{caption}</p>
+        {post_category && (
+          <p className="text-blue-400 text-sm mt-2">#{post_category}</p>
+        )}
+        <p className="text-gray-500 text-sm mt-2">
+          {formatDistanceToNow(safeDate, { addSuffix: true })}
+        </p>
       </div>
     </div>
   );

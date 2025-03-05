@@ -3,25 +3,26 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import Post from "../components/Post";
 import { useNavigate } from "react-router-dom";
+import { useAllPosts } from "../../api/hooks/usePosts";
 
 const ExplorePage: React.FC = () => {
   const navigate = useNavigate();
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      user: {
-        name: "John Smith",
-        avatar: "/placeholder.svg?height=40&width=40",
-      },
-      image: "/placeholder.svg?height=400&width=400",
-      likes: 2410,
-      shares: 2410,
-      caption: "Some caption text",
-      comments: 101,
-      timeAgo: "2 min ago",
-    },
-    // Add more posts as needed
-  ]);
+  const { data: posts, isLoading, error } = useAllPosts();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  if (isLoading) {
+    return (
+      <div className="flex-1 flex items-center justify-center">Loading...</div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex-1 flex items-center justify-center">
+        Error loading posts
+      </div>
+    );
+  }
 
   return (
     <div className="flex-1 overflow-auto">
@@ -33,13 +34,15 @@ const ExplorePage: React.FC = () => {
             type="search"
             placeholder="Search anything"
             className="w-full bg-gray-800 text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
 
       {/* Grid of Posts */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <Post key={post.id} {...post} />
         ))}
       </div>

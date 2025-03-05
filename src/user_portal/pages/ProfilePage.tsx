@@ -1,35 +1,34 @@
 import type React from "react";
 import { useState } from "react";
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useUserPosts, useDeletePost } from "../../api/hooks/usePosts";
 
 const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("approved");
+  const { data: posts, isLoading } = useUserPosts();
+  const deletePost = useDeletePost();
+  const [activeTab, setActiveTab] = useState<"approved" | "pending">(
+    "approved"
+  );
 
-  const posts = [
-    {
-      id: 1,
-      image: "/placeholder.svg?height=300&width=300",
-      status: "approved",
-    },
-    {
-      id: 2,
-      image: "/placeholder.svg?height=300&width=300",
-      status: "pending",
-    },
-    {
-      id: 3,
-      image: "/placeholder.svg?height=300&width=300",
-      status: "approved",
-    },
-    // Add more posts as needed
-  ];
-
-  const handleDeletePost = (postId: number) => {
-    console.log("Deleting post:", postId);
-    // Implement delete functionality here
+  const handleDeletePost = async (postId: string) => {
+    try {
+      await deletePost.mutateAsync(postId);
+      // The query will automatically refetch after successful deletion
+    } catch (error) {
+      console.error("Failed to delete post:", error);
+    }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-full">Loading...</div>
+    );
+  }
+
+  const filteredPosts =
+    posts?.filter((post) => post.status === activeTab) || [];
 
   return (
     <div className="max-w-4xl mx-auto p-4">
@@ -74,25 +73,23 @@ const ProfilePage: React.FC = () => {
           </button>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {posts
-            .filter((post) => post.status === activeTab)
-            .map((post) => (
-              <div key={post.id} className="relative group">
-                <img
-                  src={post.image || "/placeholder.svg"}
-                  alt={`Post ${post.id}`}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                  <button
-                    onClick={() => handleDeletePost(post.id)}
-                    className="text-white"
-                  >
-                    <MoreHorizontal className="h-6 w-6" />
-                  </button>
-                </div>
+          {filteredPosts.map((post) => (
+            <div key={post.id} className="relative group">
+              <img
+                src={post.file_url || "/placeholder.svg"}
+                alt={post.title}
+                className="w-full h-full object-cover rounded-lg"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <button
+                  onClick={() => handleDeletePost(post.id)}
+                  className="text-white hover:text-red-500 transition-colors"
+                >
+                  <Trash2 className="h-6 w-6" />
+                </button>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>
