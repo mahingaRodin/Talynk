@@ -7,6 +7,7 @@ import { useCreatePost } from "../../api/hooks/usePosts";
 const UploadPage: React.FC = () => {
   const navigate = useNavigate();
   const createPost = useCreatePost();
+  
 
   const [file, setFile] = useState<File | null>(null);
   const [title, setTitle] = useState("");
@@ -24,6 +25,14 @@ const UploadPage: React.FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+   
+    // Verify token exists
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setError("You must be logged in to create a post");
+      navigate('/login');
+      return;
+    }
 
     if (!file) {
       setError("Please select a file to upload");
@@ -34,8 +43,9 @@ const UploadPage: React.FC = () => {
       setError("Please enter a title");
       return;
     }
-
+  
     try {
+      console.log("Submitting post with token:", token);
       await createPost.mutateAsync({
         file,
         title,
@@ -49,8 +59,14 @@ const UploadPage: React.FC = () => {
       setCaption("");
       setCategory("");
       navigate("/user-portal/profile");
-    } catch (err) {
-      setError("Failed to upload post. Please try again.");
+    } catch (err: any) {
+      console.error("Upload error:", err);
+      if (err.response?.status === 401) {
+        setError("Your session has expired. Please log in again.");
+        navigate('/login');
+      } else {
+        setError(err.response?.data?.message || "Failed to upload post. Please try again.");
+      }
     }
   };
 

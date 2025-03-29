@@ -7,11 +7,7 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: authService.login,
     onSuccess: (data) => {
-      // Store auth data in localStorage
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      
+      console.log('Login success:', data);
       // Invalidate relevant queries
       queryClient.invalidateQueries({ queryKey: ['profile'] });
     },
@@ -22,10 +18,7 @@ export const useRegister = () => {
   return useMutation({
     mutationFn: authService.register,
     onSuccess: (data) => {
-      // Store auth data in localStorage
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      console.log('Register success:', data);
     },
   });
 };

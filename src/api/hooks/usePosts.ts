@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import apiClient from "../apiClient";
 
 interface Post {
   id: string;
@@ -51,9 +51,11 @@ export const useAllPosts = () => {
     queryKey: ["posts"],
     queryFn: async () => {
       try {
-        const response = await axios.get("/api/posts");
+        console.log("Fetching posts from:", `${apiClient.defaults.baseURL}/api/post`);
+        const response = await apiClient.get("/api/post");
+        console.log("API Response:", response.data);
         // Ensure we always return an array
-        const posts = Array.isArray(response.data) ? response.data : [];
+        const posts = Array.isArray(response.data.data) ? response.data.data : [];
         return posts.map(transformPost);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -69,9 +71,11 @@ export const useUserPosts = () => {
     queryKey: ["userPosts"],
     queryFn: async () => {
       try {
-        const response = await axios.get("/api/posts/user");
+        console.log("Fetching user posts from:", `${apiClient.defaults.baseURL}/api/post/user`);
+        const response = await apiClient.get("/api/post/user");
+        console.log("API Response:", response.data);
         // Ensure we always return an array
-        const posts = Array.isArray(response.data) ? response.data : [];
+        const posts = Array.isArray(response.data.data) ? response.data.data : [];
         return posts.map(transformPost);
       } catch (error) {
         console.error("Error fetching user posts:", error);
@@ -91,12 +95,15 @@ export const useCreatePost = () => {
       formData.append("caption", data.caption);
       formData.append("post_category", data.post_category);
 
-      const response = await axios.post("/api/posts", formData, {
+      console.log("Creating post at:", `${apiClient.defaults.baseURL}/api/posts`);
+      
+      const response = await apiClient.post("/api/posts", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      return transformPost(response.data);
+      // console.log("Create post response:", response);
+      return transformPost(response.data.data);
     },
   });
 };
@@ -105,7 +112,8 @@ export const useCreatePost = () => {
 export const useDeletePost = () => {
   return useMutation({
     mutationFn: async (postId: string) => {
-      await axios.delete(`/api/posts/${postId}`);
+      console.log("Deleting post at:", `${apiClient.defaults.baseURL}/api/post/${postId}`);
+      await apiClient.delete(`/api/post/${postId}`);
       return postId;
     },
   });
@@ -117,9 +125,11 @@ export const useSearchPosts = (query: string) => {
     queryKey: ["search", query],
     queryFn: async () => {
       try {
-        const response = await axios.get(`/api/posts/search?q=${query}`);
+        console.log("Searching posts at:", `${apiClient.defaults.baseURL}/api/post/search?q=${query}`);
+        const response = await apiClient.get(`/api/post/search?q=${query}`);
+        console.log("Search response:", response.data);
         // Ensure we always return an array
-        const posts = Array.isArray(response.data) ? response.data : [];
+        const posts = Array.isArray(response.data.data) ? response.data.data : [];
         return posts.map(transformPost);
       } catch (error) {
         console.error("Error searching posts:", error);

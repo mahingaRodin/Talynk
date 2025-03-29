@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance with default configuration
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://talynk-backend.onrender.com',
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -11,7 +11,8 @@ const apiClient = axios.create({
 // Add a request interceptor to include the auth token in requests
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('accessToken') || localStorage.getItem('token');
+    console.log('Token:', token);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -55,6 +56,7 @@ apiClient.interceptors.response.use(
         // If refresh fails, redirect to login
         localStorage.removeItem('token');
         localStorage.removeItem('refreshToken');
+        localStorage.removeItem('accessToken');
         window.location.href = '/';
       }
     }
