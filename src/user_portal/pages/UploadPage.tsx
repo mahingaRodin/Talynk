@@ -27,10 +27,10 @@ const UploadPage: React.FC = () => {
     setError(null);
    
     // Verify token exists
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('accessToken');
     if (!token) {
       setError("You must be logged in to create a post");
-      navigate('/login');
+      navigate('example/login');
       return;
     }
 

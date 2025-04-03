@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const location = useLocation();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("accessToken");
   console.log(token);
 
   if (!token) {

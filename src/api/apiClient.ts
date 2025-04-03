@@ -6,6 +6,7 @@ const apiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // This is important for CORS
 });
 
 // Add a request interceptor to include the auth token in requests
@@ -43,6 +44,7 @@ apiClient.interceptors.response.use(
             headers: {
               Authorization: `Bearer ${refreshToken}`,
             },
+            withCredentials: true,
           });
           
           const { token } = response.data;

@@ -27,6 +27,7 @@ const LoginExample = () => {
             (location.state as { from?: { pathname: string } })?.from
               ?.pathname || "/user-portal";
           navigate(from, { replace: true });
+          console.log(` Success hit--------------------`)
         },
       }
     );

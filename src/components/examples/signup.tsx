@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
-import { useSignup } from "../../api/hooks/useAuth";
+import { useRegister, useSignup } from "../../api/hooks/useAuth";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +13,7 @@ const SignupPage = () => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
 
-  const signup = useSignup();
+  const signup = useRegister();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -34,7 +34,7 @@ export const authService = {
     if (response.data.status === 'success') {
       // Store tokens in localStorage
       console.log("login response -->", response)
-      localStorage.setItem('token', response.data.data.accessToken);
+      localStorage.setItem('accessToken', response.data.data.accessToken);
       localStorage.setItem('refreshToken', response.data.data.refreshToken);
       localStorage.setItem('user', JSON.stringify(response.data.data.user));
     }
@@ -44,10 +44,7 @@ export const authService = {
   register: async (data: RegisterRequest): Promise<AuthResponse> => {
     const response = await apiClient.post<AuthResponse>('/api/auth/register', data);
     if (response.data.status === 'success') {
-      // Store tokens in localStorage
-      localStorage.setItem('token', response.data.data.accessToken);
-      localStorage.setItem('refreshToken', response.data.data.refreshToken);
-      localStorage.setItem('user', JSON.stringify(response.data.data.user));
+      console.log("Registration successful, redirecting to login...");
     }
     return response.data;
   },
@@ -61,7 +58,7 @@ export const authService = {
   },
 
   logout: () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('user');
   },
